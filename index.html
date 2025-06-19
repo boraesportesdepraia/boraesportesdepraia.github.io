@@ -66,6 +66,13 @@
             background-size: cover;
             object-fit: cover;
         }
+        /* CORREÇÃO PARA PARALLAX EM DISPOSITIVOS MÓVEIS */
+@media (max-width: 1024px) {
+    .local-background,
+    .comunidade-background {
+        background-attachment: scroll; /* Desativa o parallax em telas menores para corrigir o zoom */
+    }
+}
     </style>
 </head>
 <body class="bg-white text-brand-dark">
