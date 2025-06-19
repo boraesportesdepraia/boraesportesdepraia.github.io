@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bora Esportes de Praia - Aulas e Campeonatos em Trancoso</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (using an emoji for simplicity) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏐</text></svg>">
+
+    <script>
+        // Custom Tailwind CSS configuration
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-orange': '#F28C5F', // Cor principal da logo
+                        'brand-orange-dark': '#E87A4F',
+                        'brand-dark': '#2C3E50', // Cor para textos escuros
+                        'brand-sand': '#FFF9F0', // Tom de areia claro para fundo
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilo para a imagem de fundo da seção de comunidade */
+        .comunidade-background {
+            /* ==================================================================
+              === PARA ALTERAR A IMAGEM DE FUNDO DA SEÇÃO 'COMUNIDADE'     ===
+              === TROQUE A URL ABAIXO:                                       ===
+              ==================================================================
+            */
+            background-image: url('comunidade.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efeito parallax */
+        }
+        /* Estilo para a imagem de fundo da seção de localização */
+        .local-background {
+            background-image: url('vale.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Efeito parallax */
+        }
+        /* Estilo para o video de fundo */
+        #campeonatos-video {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            background-size: cover;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-dark">
+
+    <!-- =========== Header =========== -->
+    <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#">
+                <img src="logo.png" alt="Logo Bora Esportes de Praia" class="h-10">
+            </a>
+            <!-- Navegação Desktop -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#aulas" class="text-brand-dark hover:text-brand-orange transition-colors duration-300">Aulas</a>
+                <a href="#campeonatos" class="text-brand-dark hover:text-brand-orange transition-colors duration-300">Campeonatos</a>
+                <a href="#comunidade" class="text-brand-dark hover:text-brand-orange transition-colors duration-300">Comunidade</a>
+                <a href="#local" class="text-brand-dark hover:text-brand-orange transition-colors duration-300">Localização</a>
+            </nav>
+            <a href="https://linktr.ee/boratrancoso" target="_blank" class="hidden md:block bg-brand-orange text-white font-semibold px-5 py-2 rounded-full hover:bg-brand-orange-dark transition-transform duration-300 transform hover:scale-105">
+                Agendar Aula
+            </a>
+            <!-- Botão Mobile (pode ser implementado com JS no futuro) -->
+            <button class="md:hidden text-brand-dark">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- =========== Hero Section =========== -->
+        <section id="home" class="relative min-h-screen bg-brand-dark">
+            <!-- Camadas de Fundo para o Slideshow -->
+            <div id="hero-bg-1" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"></div>
+            <div id="hero-bg-2" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0"></div>
+
+            <!-- Camada de Conteúdo -->
+            <div class="relative z-10 min-h-screen flex items-center justify-center pt-20">
+                <div class="text-center text-white p-6">
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.6)">Esporte, natureza e comunidade</h1>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl font-light" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.7)">
+                        Aulas de Beach Tennis, Futevôlei e Vôlei de Praia no coração do Vale do Quadrado, em Trancoso.
+                    </p>
+                    <div class="mt-8">
+                        <a href="https://linktr.ee/boratrancoso" target="_blank" class="bg-brand-orange text-white font-bold py-4 px-10 rounded-full text-lg uppercase hover:bg-brand-orange-dark transition-all duration-300 transform hover:scale-110 shadow-lg">
+                            Entre em Contato
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Aulas Section =========== -->
+        <section id="aulas" class="py-20 bg-brand-sand">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nossas Modalidades</h2>
+                <p class="text-brand-dark max-w-2xl mx-auto mb-12">Escolha seu esporte, agende sua aula e venha treinar com a gente nesse paraíso.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Card Beach Tennis -->
+                    <div class="bg-brand-orange text-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
+                        <img src="raquete.png" alt="Ícone de Beach Tennis" class="w-20 h-20 mb-4">
+                        <h3 class="text-2xl font-bold mb-2">Beach Tennis</h3>
+                        <p class="text-white/90">O esporte que virou febre. Dinâmico, divertido e para todas as idades.</p>
+                    </div>
+
+                    <!-- Card Futevôlei -->
+                    <div class="bg-brand-orange text-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
+                        <img src="futebol.png" alt="Ícone de Futevôlei" class="w-20 h-20 mb-4">
+                        <h3 class="text-2xl font-bold mb-2">Futevôlei</h3>
+                        <p class="text-white/90">A combinação da técnica do futebol com a ginga do vôlei.</p>
+                    </div>
+
+                    <!-- Card Vôlei de Praia -->
+                    <div class="bg-brand-orange text-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
+                        <img src="volei.png" alt="Ícone de Vôlei de Praia" class="w-20 h-20 mb-4">
+                        <h3 class="text-2xl font-bold mb-2">Vôlei de Praia</h3>
+                        <p class="text-white/90">O clássico da areia. Reúna sua dupla e venha treinar em um cenário incrível.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Campeonatos Section =========== -->
+        <section id="campeonatos" class="relative py-20 text-white overflow-hidden">
+            <video autoplay loop muted playsinline id="campeonatos-video">
+                <source src="bora.mp4" type="video/mp4">
+                O seu navegador não suporta a tag de vídeo.
+            </video>
+            
+            <!-- Sobreposição para legibilidade -->
+            <div class="absolute inset-0 bg-brand-dark/70 z-10"></div>
+            
+            <!-- Conteúdo da Secção -->
+            <div class="relative z-20 container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Campeonatos</h2>
+                <p class="text-white/90 max-w-2xl mx-auto mb-8">Além das aulas, promovemos campeonatos e torneios para todos os níveis. É a sua chance de competir, evoluir e se divertir!</p>
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl max-w-md mx-auto">
+                    <h3 class="text-2xl font-bold mb-2 text-brand-orange">Fique de Olho!</h3>
+                    <p>Siga as nossas redes sociais para não perder a data do próximo campeonato. Desafie os seus limites e participe!</p>
+                </div>
+             </div>
+        </section>
+
+        <!-- =========== Comunidade Section =========== -->
+        <section id="comunidade" class="comunidade-background py-20">
+            <div class="container mx-auto px-6">
+                 <!-- Card branco para conteúdo -->
+                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-8 md:p-12 max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center">Nossa Comunidade</h2>
+                    <div class="text-center">
+                        <p class="text-brand-dark text-lg leading-relaxed">
+                            Mais do que uma escola, o Bora é um ponto de encontro. Aqui, amizades são feitas, parcerias são formadas e a paixão pelo esporte nos une. Nossos alunos criaram uma comunidade vibrante que vai além das quadras, com eventos, encontros e muito alto astral. Faça parte da nossa família!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========== Localização Section =========== -->
+        <section id="local" class="local-background py-20">
+            <div class="container mx-auto px-6">
+                 <!-- Card branco para conteúdo -->
+                 <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-8 md:p-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Nossa Casa</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold text-brand-orange mb-3">Vale do Quadrado, Trancoso</h3>
+                            <p class="text-brand-dark mb-4">
+                                Estamos numa localização privilegiada no Vale do Quadrado, um lugar mágico com uma energia única. Os nossos campos têm acesso direto ao Rio Trancoso, proporcionando uma vista espetacular e um mergulho refrescante depois do treino.
+                            </p>
+                            <p class="text-brand-dark">
+                                Fácil de chegar, impossível de esquecer. Venha viver a experiência Bora!
+                            </p>
+                        </div>
+                         <!-- Google Maps Embed -->
+                        <div class="rounded-xl overflow-hidden shadow-lg h-80 md:h-96">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3823.821752809995!2d-39.09512219999999!3d-16.5854775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7369b2813b10f89%3A0x2a7c10f94b22ea6!2sBora%20Esportes%20de%20Praia!5e0!3m2!1spt-BR!2sbr!4v1750265110956!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- =========== Footer =========== -->
+    <footer class="bg-brand-dark text-white py-8">
+        <div class="container mx-auto px-6 text-center flex flex-col items-center">
+            <!-- Logo no Rodapé -->
+            <a href="#">
+                <img src="logo.png" alt="Logo Bora Esportes de Praia" class="h-10">
+            </a>
+            <p class="my-4 text-white/75">Vivendo o esporte, celebrando a vida.</p>
+            <div class="mt-4">
+                 <a href="https://linktr.ee/boratrancoso" target="_blank" class="text-brand-orange hover:text-brand-orange-dark font-semibold transition-colors duration-300">
+                    Entre em contato
+                </a>
+            </div>
+            <p class="text-xs text-white/50 mt-6">&copy; 2024 Bora Esportes de Praia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bg1 = document.getElementById('hero-bg-1');
+            const bg2 = document.getElementById('hero-bg-2');
+            
+            const images = [
+                '1.jpg',
+                '2.jpg',
+                '3.jpg'
+            ];
+
+            images.forEach(src => { new Image().src = src; });
+
+            let currentImageIndex = 0;
+            const overlay = 'linear-gradient(rgba(44, 62, 80, 0.45), rgba(44, 62, 80, 0.45))';
+            
+            let activeLayer = bg1;
+            let inactiveLayer = bg2;
+
+            activeLayer.style.backgroundImage = `${overlay}, url('${images[currentImageIndex]}')`;
+
+            setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                inactiveLayer.style.backgroundImage = `${overlay}, url('${images[currentImageIndex]}')`;
+                activeLayer.classList.add('opacity-0');
+                inactiveLayer.classList.remove('opacity-0');
+                [activeLayer, inactiveLayer] = [inactiveLayer, activeLayer];
+            }, 4000);
+        });
+    </script>
+
+</body>
+</html>
